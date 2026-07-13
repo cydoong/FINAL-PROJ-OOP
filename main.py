@@ -1,15 +1,4 @@
-#!/usr/bin/env python3
-"""
-PayrollPro (Python Edition) — Entry Point
-============================================
-Launches the desktop application:
-  1. Boots the database (SQLite by default, or your configured
-     XAMPP/MySQL server) and seeds reference data on first run.
-  2. Shows the Login screen (Login / Activate Account / Forgot
-     Password).
-  3. On successful login, swaps in the role-aware MainWindow
-     (Admin or Employee).
-"""
+'''ITO ANG NEED I-RUN. ITO ANG INITIAL/MAIN FILE NG SYSTEM'''
 from __future__ import annotations
 
 import os
