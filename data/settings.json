@@ -1,0 +1,47 @@
+{
+  "database": {
+    "backend": "sqlite",
+    "sqlite_path": "/tmp/tmpysvuwhv0.db",
+    "mysql_host": "localhost",
+    "mysql_port": 3306,
+    "mysql_db": "payroll_db",
+    "mysql_user": "root",
+    "mysql_password": "",
+    "mysql_charset": "utf8mb4"
+  },
+  "mail": {
+    "enabled": true,
+    "host": "smtp.gmail.com",
+    "port": 587,
+    "encryption": "tls",
+    "username": "cydsalgado@gmail.com",
+    "password": "exje edhg lqjs zzah",
+    "from_email": "cydsalgado@gmail.com",
+    "from_name": "The PayrollPRO 360",
+    "company_name": "PayrollPRO 360"
+  },
+  "sms": {
+    "enabled": false,
+    "provider": "semaphore",
+    "api_key": "YOUR_SEMAPHORE_API_KEY_HERE",
+    "sender_name": "PAYROLL",
+    "twilio_sid": "YOUR_TWILIO_ACCOUNT_SID",
+    "twilio_token": "YOUR_TWILIO_AUTH_TOKEN",
+    "twilio_from": "+1XXXXXXXXXX"
+  },
+  "otp": {
+    "expiry_minutes": 10,
+    "otp_length": 6,
+    "passcode_length": 8
+  },
+  "attendance": {
+    "shift_start": "08:00",
+    "shift_end": "17:00",
+    "grace_minutes": 10,
+    "standard_hours_per_day": 8.0
+  },
+  "theme": "blossom",
+  "max_failed_logins": 3,
+  "reset_default_password": "emp123",
+  "admin_default_password": "admin123"
+}
