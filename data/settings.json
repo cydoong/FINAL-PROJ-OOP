@@ -40,7 +40,7 @@
     "grace_minutes": 10,
     "standard_hours_per_day": 8.0
   },
-  "theme": "blossom",
+  "theme": "sky",
   "max_failed_logins": 3,
   "reset_default_password": "emp123",
   "admin_default_password": "admin123"

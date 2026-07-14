@@ -1,10 +1,10 @@
-'''ITO ANG NEED I-RUN. ITO ANG INITIAL/MAIN FILE NG SYSTEM'''
+"""ITO ANG NEED I-RUN. ITO ANG INITIAL/MAIN FILE NG SYSTEM"""
 from __future__ import annotations
 
 import os
 import sys
 
-os.environ.setdefault("QT_API", "pyqt6")
+os.environ.setdefault("QT_API", "PyQt6")
 
 from PyQt6.QtWidgets import QApplication, QMainWindow, QMessageBox, QStackedWidget
 
