@@ -1,0 +1,10 @@
+.idea/
+.venv/
+.venv-1/
+build/
+dist/
+__pycache__/
+*.pyc
+desktop.ini
+PayrollProData/
+config/local_settings.py

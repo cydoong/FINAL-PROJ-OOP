@@ -20,19 +20,34 @@ from dataclasses import dataclass, field, asdict
 from pathlib import Path
 from typing import Optional
 
+import sys
+
 APP_NAME = "PayrollPro"
 APP_VERSION = "7.0.0-python"
 
-# Root folder of the application (…/payrollpro)
-APP_ROOT = Path(__file__).resolve().parent.parent
+# Root folder of the application. When running as a normal .py file,
+# this is the project folder. When running as a PyInstaller .exe,
+# __file__ points inside a temp extraction folder that changes every
+# launch — so we anchor to the .exe's actual location instead.
+if getattr(sys, "frozen", False):
+    APP_ROOT = Path(sys.executable).resolve().parent
+else:
+    APP_ROOT = Path(__file__).resolve().parent.parent
 
-# Where user data / settings live. Kept inside the app folder so the
-# whole thing stays portable (copy folder -> copy install).
-DATA_DIR = APP_ROOT / "data"
+# Where user data / settings live. Hardcoded to a fixed shared folder
+# (not derived from APP_ROOT) so both VS Code and the built .exe
+# always read/write the exact same settings.json and payroll_system.db,
+# regardless of where the app is launched from.
+try:
+    from config.local_settings import DATA_DIR
+except ImportError:
+    DATA_DIR = APP_ROOT / "PayrollProData"
+
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 SETTINGS_FILE = DATA_DIR / "settings.json"
 DEFAULT_SQLITE_PATH = DATA_DIR / "payroll_system.db"
+
 
 LOG_DIR = APP_ROOT / "logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
