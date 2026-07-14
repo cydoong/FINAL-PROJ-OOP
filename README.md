@@ -78,8 +78,7 @@ equivalent:
 - Archive — restore or permanently purge archived employees/positions,
   with the exact same conflict checks as the original (name/email
   collisions, missing department, employee-code re-use, etc.)
-- Settings — switch between SQLite and your XAMPP MySQL database,
-  configure email/SMS right from the GUI, and edit SSS/PhilHealth/
+- Settings — configure email/SMS right from the GUI, and edit SSS/PhilHealth/
   Pag-IBIG contribution rates (Gov't Rates tab) without touching code
 - **Appearance** — 5 switchable themes (Classic Neon, Emerald, Sky,
   Blossom, and Special), reachable by every role from the topbar's
@@ -97,38 +96,11 @@ equivalent:
   payout method, change username/password — both gated behind your
   personal passcode, exactly like the original)
 
-**Auth flows** (all pixel-for-logic identical to the PHP version)
+**Auth flows**
 - Login with lockout after repeated failed attempts
 - Activate Account (passcode -> email/phone -> done)
 - Forgot Password (passcode + contact match -> OTP via email/SMS ->
   new password)
-
----
-
-## Two database options
-
-You choose this in Settings -> Database after first login (or by
-editing `data/settings.json` directly):
-
-1. **SQLite** (default) — a single file, zero configuration. Perfect
-   for a fresh start or just trying the app out. Created automatically
-   at `data/payroll_system.db` on first run, along with the same
-   baseline departments/positions/allowance & deduction types the
-   original system shipped with, plus a default admin account.
-
-2. **MySQL / MariaDB via XAMPP** — point the app at your existing
-   `payroll_db` database. The table and column names match the
-   original schema exactly, so if you already have employees, payroll
-   history, and audit logs from the PHP system, they show up
-   immediately — no migration step needed. Just start XAMPP's MySQL
-   service and fill in host/port/database/username/password in
-   Settings.
-
-Note: the original MySQL stored procedures/triggers/views aren't
-required — all of that logic has been re-implemented in Python
-(`core/payroll_engine.py`, `core/audit.py`) so behavior is identical
-on both backends. If your existing `payroll_db` still has those
-objects installed, that's harmless; they just won't be called.
 
 ---
 
@@ -146,9 +118,6 @@ python main.py
 
 **Default employee password** (after activation, or after an admin
 password reset): `emp123` — same as the original system.
-
-If you point the app at your existing XAMPP database instead, use
-whatever admin/employee credentials already exist there.
 
 ---
 
